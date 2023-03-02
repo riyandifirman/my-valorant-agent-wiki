@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/about_me"
+        android:id="@+id/about_page"
         android:icon="@drawable/ic_about_me"
-        android:title="@string/about_me"
+        android:title="@string/about_page"
         app:showAsAction="always" />
 </menu>

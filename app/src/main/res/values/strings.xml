@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Valorant Agent Wiki</string>
-    <string name="about_me">About Me</string>
+    <string name="about_page">About Page</string>
     <string name="name">Riyandi Firman Pratama</string>
+    <string name="email">riyandi.firman08@gmail.com</string>
 </resources>

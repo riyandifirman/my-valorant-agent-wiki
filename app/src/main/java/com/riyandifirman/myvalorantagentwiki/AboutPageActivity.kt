@@ -3,9 +3,9 @@ package com.riyandifirman.myvalorantagentwiki
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class AboutMeActivity : AppCompatActivity() {
+class AboutPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about_me)
+        setContentView(R.layout.activity_about_page)
     }
 }

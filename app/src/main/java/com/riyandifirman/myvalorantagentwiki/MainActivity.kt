@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.about_me) {
-            val intent = Intent(this, AboutMeActivity::class.java)
+        if (item.itemId == R.id.about_page) {
+            val intent = Intent(this, AboutPageActivity::class.java)
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)

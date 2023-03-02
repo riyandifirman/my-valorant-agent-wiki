@@ -15,7 +15,7 @@
             android:name=".DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".AboutMeActivity"
+            android:name=".AboutPageActivity"
             android:exported="false"
             android:theme="@style/Theme.MyValorantAgentWiki.NoActionBar" />
         <activity
