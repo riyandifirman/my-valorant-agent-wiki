@@ -1,5 +1,6 @@
 package com.riyandifirman.myvalorantagentwiki
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ListAgentAdapter(private val listAgent: ArrayList<Agent>) : RecyclerView.Adapter<ListAgentAdapter.ListViewHolder>() {
+
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val imgPhoto = itemView.findViewById<ImageView>(R.id.img_item_photo)
         val tvName = itemView.findViewById<TextView>(R.id.tv_item_name)
@@ -31,5 +35,18 @@ class ListAgentAdapter(private val listAgent: ArrayList<Agent>) : RecyclerView.A
         holder.tvRole.text = role
         holder.tvCountry.text = country
         holder.tvUltimate.text = ultimate
+
+        holder.itemView.setOnClickListener{
+            onItemClickCallback.onItemClicked(listAgent[holder.adapterPosition])
+        }
+    }
+
+    fun setOnItemClickCallback(onItemClickCallback: ListAgentAdapter.OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
+    interface OnItemClickCallback {
+
+        fun onItemClicked(data: Agent)
     }
 }

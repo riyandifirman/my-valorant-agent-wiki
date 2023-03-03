@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -28,6 +29,23 @@ class MainActivity : AppCompatActivity() {
         rvAgent.layoutManager = LinearLayoutManager(this)
         val listAgentAdapter = ListAgentAdapter(list)
         rvAgent.adapter = listAgentAdapter
+
+        listAgentAdapter.setOnItemClickCallback(object : ListAgentAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Agent) {
+                showSelectedAgent(data)
+                sendIntent(data)
+            }
+        })
+    }
+
+    private fun showSelectedAgent(agent: Agent) {
+        Toast.makeText(this, "You choose ${agent.name}", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun sendIntent(dataAgent: Agent) {
+        val intent = Intent(this@MainActivity, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.EXTRA_AGENT, dataAgent)
+        startActivity(intent)
     }
 
     private fun getListAgent(): ArrayList<Agent> {
