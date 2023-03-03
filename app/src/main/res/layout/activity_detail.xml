@@ -86,7 +86,7 @@
     <TextView
         android:id="@+id/tv_description"
         style="@style/Theme.TextBody"
-        android:layout_width="400dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
