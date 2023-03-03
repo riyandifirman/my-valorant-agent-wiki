@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.riyandifirman.myvalorantagentwiki.databinding.ActivityDetailBinding
@@ -13,6 +14,7 @@ import com.riyandifirman.myvalorantagentwiki.databinding.ActivityDetailBinding
 class DetailActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityDetailBinding
+    private lateinit var button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +40,15 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
             binding.tvDescription.text = data.description
             binding.ivProfile.setImageResource(data.photo)
             binding.ivRole.setImageResource(data.role_icon)
+        }
+
+        val url = "https://github.com/riyandifirman/my-valorant-agent-wiki"
+        binding.shareButton.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/plain"
+            intent.putExtra(Intent.EXTRA_SUBJECT, "My Valorant Agent Wiki")
+            intent.putExtra(Intent.EXTRA_TEXT, url)
+            startActivity(Intent.createChooser(intent, "Share via"))
         }
     }
 

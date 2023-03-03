@@ -10,6 +10,7 @@
     <string name="ultimate">Ultimate</string>
     <string name="description">Description</string>
     <string name="jett">Jett</string>
+    <string name="share">Share</string>
 
     <string-array name="data_name">
         <item>Astra</item>
