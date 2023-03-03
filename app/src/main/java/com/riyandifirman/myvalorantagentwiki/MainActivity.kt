@@ -13,6 +13,7 @@ import com.riyandifirman.myvalorantagentwiki.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    // Inisialisasi RecyclerView, ArrayList, dan Binding
     private lateinit var rvAgent: RecyclerView
     private val list = ArrayList<Agent>()
     private lateinit var binding: ActivityMainBinding
@@ -21,21 +22,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Menggunakan ViewBinding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Menggunakan RecyclerView
         rvAgent = binding.rvAgent
         rvAgent.setHasFixedSize(true)
 
+        // Memanggil method getListAgent() dan showRecyclerList()
         list.addAll(getListAgent())
         showRecyclerList()
     }
 
+    // Method untuk menampilkan RecyclerView
     private fun showRecyclerList() {
+        // Menggunakan LinearLayoutManager
         rvAgent.layoutManager = LinearLayoutManager(this)
         val listAgentAdapter = ListAgentAdapter(list)
         rvAgent.adapter = listAgentAdapter
 
+        // Menggunakan OnItemClickCallback untuk menampilkan Toast dan Intent
         listAgentAdapter.setOnItemClickCallback(object : ListAgentAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Agent) {
                 showSelectedAgent(data)
@@ -44,16 +51,20 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    // Method untuk menampilkan Toast
     private fun showSelectedAgent(agent: Agent) {
         Toast.makeText(this, "You choose ${agent.name}", Toast.LENGTH_SHORT).show()
     }
 
+    // Method untuk mengirimkan data ke DetailActivity
     private fun sendIntent(dataAgent: Agent) {
         val intent = Intent(this@MainActivity, DetailActivity::class.java)
+        // Menggunakan Parcelable
         intent.putExtra(DetailActivity.EXTRA_AGENT, dataAgent)
         startActivity(intent)
     }
 
+    // Method untuk mengambil data dari file strings.xml
     private fun getListAgent(): ArrayList<Agent> {
         val dataName = resources.getStringArray(R.array.data_name)
         val dataRole = resources.getStringArray(R.array.data_role)
@@ -63,7 +74,9 @@ class MainActivity : AppCompatActivity() {
         val dataDescription = resources.getStringArray(R.array.data_description)
         val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
 
+        // Menggunakan ArrayList
         val listAgent = ArrayList<Agent>()
+        // Menggunakan for loop untuk mengambil data dari file strings.xml
         for (position in dataName.indices) {
             val agent = Agent(
                 dataName[position],
@@ -79,11 +92,13 @@ class MainActivity : AppCompatActivity() {
         return listAgent
     }
 
+    // Method untuk menampilkan menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.about_me, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    // Method untuk menampilkan AboutPageActivity
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.about_page) {
             val intent = Intent(this, AboutPageActivity::class.java)

@@ -13,18 +13,23 @@ import com.riyandifirman.myvalorantagentwiki.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity(), View.OnClickListener {
 
+    // Inisiasi binding
     private lateinit var binding: ActivityDetailBinding
+    // Inisiasi button share
     private lateinit var button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
+        // Inisiasi binding
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Set onClickListener untuk button back di detail page
         binding.ibBack.setOnClickListener(this)
 
+        // Pengambilan data dari MainActivity melalui Parcelable Extra
         val data = if (Build.VERSION.SDK_INT >= 33) {
             intent.getParcelableExtra(EXTRA_AGENT, Agent::class.java)
         } else {
@@ -32,6 +37,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
             intent.getParcelableExtra(EXTRA_AGENT)
         }
 
+        // Set data ke view
         if (data != null) {
             binding.tvName.text = data.name
             binding.tvRole.text = data.role
@@ -42,6 +48,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
             binding.ivRole.setImageResource(data.role_icon)
         }
 
+        // Set onClickListener untuk button share
         val url = "https://github.com/riyandifirman/my-valorant-agent-wiki"
         binding.shareButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
@@ -52,8 +59,10 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    // Fungsi untuk menangani onClickListener
     override fun onClick(v: View) {
         when (v.id) {
+            // Jika button back di klik, maka akan kembali ke MainActivity
             R.id.ib_back -> {
                 val backIntent = Intent(this@DetailActivity, MainActivity::class.java)
                 startActivity(backIntent)
@@ -61,6 +70,7 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    // Deklarasi companion object untuk Parcelable Extra
     companion object {
         const val EXTRA_AGENT = "extra_agent"
     }
