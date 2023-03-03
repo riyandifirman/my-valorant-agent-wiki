@@ -8,17 +8,23 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.riyandifirman.myvalorantagentwiki.databinding.ActivityDetailBinding
+import com.riyandifirman.myvalorantagentwiki.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var rvAgent: RecyclerView
     private val list = ArrayList<Agent>()
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rvAgent = findViewById(R.id.rv_agent)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        rvAgent = binding.rvAgent
         rvAgent.setHasFixedSize(true)
 
         list.addAll(getListAgent())

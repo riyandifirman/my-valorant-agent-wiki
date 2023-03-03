@@ -11,6 +11,7 @@
     <string name="description">Description</string>
     <string name="jett">Jett</string>
     <string name="share">Share</string>
+    <string name="about_me">About Me &#128072;</string>
 
     <string-array name="data_name">
         <item>Astra</item>
