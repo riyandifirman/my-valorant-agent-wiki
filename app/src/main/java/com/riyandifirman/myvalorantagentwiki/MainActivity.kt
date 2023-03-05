@@ -106,4 +106,9 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    // Method untuk menutup aplikasi ketika tombol back ditekan
+    override fun onBackPressed() {
+        finishAffinity()
+    }
 }
