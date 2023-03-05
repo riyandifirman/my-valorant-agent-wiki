@@ -49,12 +49,17 @@ class DetailActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         // Set onClickListener untuk button share
-        val url = "https://github.com/riyandifirman/my-valorant-agent-wiki"
+        val message = "My Valorant Agent Wiki\n\n" +
+                "Name: ${binding.tvName.text}\n" +
+                "${binding.tvRole.text}\n" +
+                "${binding.tvCountry.text}\n" +
+                "${binding.tvUltimate.text}\n" +
+                "Description: ${binding.tvDescription.text}\n"
         binding.shareButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/plain"
             intent.putExtra(Intent.EXTRA_SUBJECT, "My Valorant Agent Wiki")
-            intent.putExtra(Intent.EXTRA_TEXT, url)
+            intent.putExtra(Intent.EXTRA_TEXT, message)
             startActivity(Intent.createChooser(intent, "Share via"))
         }
     }
