@@ -26,12 +26,12 @@ Features that must be present in the app:
   - By adding a custom View element (can be a menu option, button, or tab) containing the ID "about_page"
 
 ## Screenshot Application
-<b> Splash Screen & Home Page </b> <br>
+<b> Splash Screen & Home Page </b> <br> <br>
 <img src="https://github.com/riyandifirman/my-valorant-agent-wiki/assets/49358131/eb7405ed-bf79-477f-b9fb-25c8407b4edc" alt="Home Page" widht="500" height="500">
 <img src="https://github.com/riyandifirman/my-valorant-agent-wiki/assets/49358131/93bbf65b-968b-4b6d-8b86-6bc40e108f2c" alt="Home Page" widht="500" height="500">
 <img src="https://github.com/riyandifirman/my-valorant-agent-wiki/assets/49358131/f7dc8729-cca7-42c9-94b6-f135fe5b2018" alt="Home Page" widht="500" height="500">
 
-<b> Detail List & About Me Page </b> <br>
+<b> Detail List & About Me Page </b> <br> <br>
 <img src="https://github.com/riyandifirman/my-valorant-agent-wiki/assets/49358131/34f2a74f-4177-4306-99b9-5220b1c43044" alt="Home Page" widht="500" height="500">
 <img src="https://github.com/riyandifirman/my-valorant-agent-wiki/assets/49358131/18c16175-49ea-4f21-b2b2-a71e0e78b5ac" alt="Home Page" widht="500" height="500">
 <img src="https://github.com/riyandifirman/my-valorant-agent-wiki/assets/49358131/f7bbd2bf-85b7-4c57-b89b-26e106674a5d" alt="Home Page" widht="500" height="500">
